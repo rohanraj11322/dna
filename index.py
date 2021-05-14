@@ -6,7 +6,7 @@ from PIL import Image
 
 # Page Title
 
-image = Image.open('dna.jpg')
+image = Image.open('dna.png')
 
 st.image(image, use_column_width=True)
 
@@ -51,7 +51,7 @@ def DNA_nucleotide_count(seq):
             ('T',seq.count('T')),
             ('G',seq.count('G')),
             ('C',seq.count('C')),
-            
+            ('lenght of Dna seq is',len(seq))
             ])
   return d
 
@@ -68,7 +68,9 @@ st.write('The number of Adenine (A) in your Dna sequence is :\t' + str(Y['A']) )
 st.write('The number of Thymine (T) in your Dna sequence is :\t' + str(Y['T']) )
 st.write('The number of Guanine (G) in your Dna sequence is :\t ' + str(Y['G']) )
 st.write('The number of Cytosine (C) in your Dna sequence is :\t' + str(Y['C']) )
-
+st.write('The length of DNA sequence is :\t' + str(Y['lenght of Dna seq is']) )
+dna = (Y['G']+Y['C']/(Y['A'] + Y['T']+ Y['G']+Y['C'])*100)
+st.write("GC {} in your DNA sequence is :\t {}".format("%" ,str(round(dna,2)) ) )
 
 
 ### 3. Display DataFrame
